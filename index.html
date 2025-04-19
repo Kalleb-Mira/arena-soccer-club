@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Society Soccer Club</title>
+    <link rel="icon" href="imagens/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: url('imagens/frente-arena.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(3, 126, 48, 0.3);
+            z-index: 1;
+        }
+
+        header * {
+            position: relative;
+            z-index: 2;
+        }
+
+        header img {
+            width: 160px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 1);
+        }
+
+        header a {
+            padding: 10px 20px;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #16a34a;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .precos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            text-align: center;
+        }
+
+        .swiper {
+            width: 100%;
+            padding: 45px 0 10px;
+        }
+
+        .swiper-slide {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 4 / 3;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide img:hover {
+            transform: scale(1.1);
+        }
+
+        .instagram-button {
+            position: fixed;
+            bottom: 150px;
+            right: 20px;
+            z-index: 998;
+            width: 45px;
+            height: 45px;
+        }
+
+        .instagram-button img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-button img:hover {
+            transform: scale(1.1);
+        }
+
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+        }
+
+        .whatsapp-button img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-button:hover+.tooltip {
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .tooltip {
+            position: fixed;
+            bottom: 75px;
+            right: 90px;
+            background: #16a34a;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateX(0);
+            transition: all 0.3s ease;
+            z-index: 998;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #16a34a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .swiper-slide img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: auto;
+                padding: 60px 20px;
+            }
+
+            header img {
+                width: 100px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 0.95rem;
+            }
+
+            header a {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+            .instagram-button {
+                width: 40px;
+                height: 40px;
+                bottom: 160px;
+            }
+
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
+                bottom: 100px;
+            }
+            .tooltip {
+  display: none;
+}
+        }
+        
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <img src="imagens/logo.png" alt="Logo Arena Soccer Club">
+        <h1>Arena Soccer Club</h1>
+
+        <p>Seu espaço para jogar futebol com conforto e estrutura</p>
+        <a href="#precos">Veja os preços</a>
+    </header>
+
+    <section id="sobre">
+        <h2>Sobre a Arena</h2>
+        <p>A Arena Soccer Club é o lugar ideal para quem ama futebol. Estrutura moderna, campo de qualidade, vestiários
+            equipados e atendimento de primeira. Reúna os amigos e venha jogar com a gente!</p>
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="imagens/campo.jpg" alt="Vista interna do campo"></div>
+                <div class="swiper-slide"><img src="imagens/cervejas.jpg" alt="Cervejas"></div>
+                <div class="swiper-slide"><img src="imagens/salao.jpg" alt="Vista interna do salão"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="precos">
+        <h2>Nossos Preços</h2>
+        <div class="precos">
+            <div class="card">
+                <h3>Hora média</h3>
+                <p>R$ 120,00</p>
+            </div>
+            <div class="card">
+                <h3>Pacote mensal</h3>
+                <p>R$ 400,00 (4 jogos)</p>
+            </div>
+            <div class="card">
+                <h3>Torneios</h3>
+                <p>Valores sob consulta</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="localizacao">
+        <h2>Onde Estamos</h2>
+        <p style="text-align: center; margin-bottom: 20px;">📍 Trav. Carlos de Carvalho, 661 – Cidade Velha, Belém/PA
+        </p>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5144425240674!2d-48.4971751!3d-1.4648439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48f9d220f0647%3A0xc5a25adafa32291d!2sArena%20Society%20Soccer%20Club!5e0!3m2!1spt-BR!2sbr!4v1744903025723!5m2!1spt-BR!2sbr"
+            allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
+
+    <footer>
+        <p>Contato via WhatsApp: (91) 99114-9679 | Instagram: @soccerclubsociety</p>
+        <p style="font-size: 14px; margin-top: 5px;">
+            Desenvolvido por <a href="https://www.linkedin.com/in/kalleb-mira/" target="_blank"
+                style="color: white; text-decoration: underline;">Kalleb Mira</a>
+        </p>
+    </footer>
+
+
+    <!-- Ícone do Instagram -->
+    <a href="https://instagram.com/soccerclubsociety" class="instagram-button" target="_blank" aria-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+    </a>
+
+    <!-- Botão do WhatsApp -->
+    <a href="https://wa.me/5591991149679" class="whatsapp-button" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+    </a>
+    <div class="tooltip">Fale conosco</div>
+
+
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+    </script>
+</body>
+
+</html>

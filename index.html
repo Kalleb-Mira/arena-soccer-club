@@ -134,7 +134,7 @@
 
         .instagram-button {
             position: fixed;
-            bottom: 150px;
+            bottom: calc(150px + env(safe-area-inset-bottom));
             right: 20px;
             z-index: 998;
             width: 45px;
@@ -156,7 +156,7 @@
 
         .whatsapp-button {
             position: fixed;
-            bottom: 70px;
+            bottom: calc(70px + env(safe-area-inset-bottom));
             right: 20px;
             z-index: 1000;
             width: 60px;
@@ -190,7 +190,7 @@
 
         .tooltip {
             position: fixed;
-            bottom: 75px;
+            bottom: calc(75px + env(safe-area-inset-bottom));
             right: 90px;
             background: #16a34a;
             color: white;
@@ -266,17 +266,17 @@
             .instagram-button {
                 width: 40px;
                 height: 40px;
-                bottom: 160px;
+                bottom: calc(160px + env(safe-area-inset-bottom));
             }
 
             .whatsapp-button {
                 width: 50px;
                 height: 50px;
-                bottom: 100px;
+                bottom: calc(100px + env(safe-area-inset-bottom));
             }
             .tooltip {
-  display: none;
-}
+                display: none;
+            }
         }
         
     </style>

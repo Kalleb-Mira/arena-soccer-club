@@ -73,6 +73,22 @@
             border-radius: 5px;
         }
 
+        .contato-whatsapp {
+            margin-top: 15px;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .contato-whatsapp a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .contato-whatsapp a:hover {
+            color: #a5f3fc;
+        }
+
         section {
             padding: 60px 20px;
             max-width: 900px;
@@ -263,6 +279,7 @@
                 font-size: 0.9rem;
                 padding: 8px 16px;
             }
+
             .instagram-button {
                 width: 40px;
                 height: 40px;
@@ -274,11 +291,11 @@
                 height: 50px;
                 bottom: calc(100px + env(safe-area-inset-bottom));
             }
+
             .tooltip {
                 display: none;
             }
         }
-        
     </style>
 
 
@@ -291,6 +308,10 @@
 
         <p>Seu espaço para jogar futebol com conforto e estrutura</p>
         <a href="#precos">Veja os preços</a>
+
+        <p class="contato-whatsapp">
+            <a href="https://wa.me/5591991149679" target="_blank">(91) 99114-9679</a>
+        </p>
     </header>
 
     <section id="sobre">
@@ -303,6 +324,19 @@
                 <div class="swiper-slide"><img src="imagens/campo.jpg" alt="Vista interna do campo"></div>
                 <div class="swiper-slide"><img src="imagens/cervejas.jpg" alt="Cervejas"></div>
                 <div class="swiper-slide"><img src="imagens/salao.jpg" alt="Vista interna do salão"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clientes">
+        <h2>Nossos Clientes</h2>
+        <p>Alguns dos nossos clientes que fazem parte da nossa história.</p>
+
+        <div class="swiper clientes-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="imagens/clientes1.jpg" alt="foto dos jogadores no gramado"></div>
+                <div class="swiper-slide"><img src="imagens/clientes2.jpg" alt="jogadores confraternizando"></div>
+                <div class="swiper-slide"><img src="imagens/clientes3.jpg" alt="foto do rexpa dos amigos"></div>
             </div>
         </div>
     </section>
@@ -374,6 +408,24 @@
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+
+        const clientesSwiper = new Swiper('.clientes-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
             },
             breakpoints: {
                 768: { slidesPerView: 2 },

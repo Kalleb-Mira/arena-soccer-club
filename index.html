@@ -7,301 +7,32 @@
     <title>Arena Society Soccer Club</title>
     <link rel="icon" href="imagens/logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #f4f4f4;
-            color: #333;
-        }
-
-        header {
-            background: url('imagens/frente-arena.jpg') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            position: relative;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(3, 126, 48, 0.3);
-            z-index: 1;
-        }
-
-        header * {
-            position: relative;
-            z-index: 2;
-        }
-
-        header img {
-            width: 160px;
-            margin-bottom: 20px;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin: 10px 0 20px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 1);
-        }
-
-        header a {
-            padding: 10px 20px;
-            background: #16a34a;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .contato-whatsapp {
-            margin-top: 15px;
-            font-size: 1rem;
-            color: white;
-        }
-
-        .contato-whatsapp a {
-            text-decoration: none;
-            color: white;
-            transition: color 0.3s ease;
-        }
-
-        .contato-whatsapp a:hover {
-            color: #a5f3fc;
-        }
-
-        section {
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #16a34a;
-        }
-
-        p {
-            text-align: center;
-        }
-
-        .precos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 220px;
-            text-align: center;
-        }
-
-        .swiper {
-            width: 100%;
-            padding: 45px 0 10px;
-        }
-
-        .swiper-slide {
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-        }
-
-        .swiper-slide img {
-            width: 100%;
-            max-width: 300px;
-            aspect-ratio: 4 / 3;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .swiper-slide img:hover {
-            transform: scale(1.1);
-        }
-
-        .instagram-button {
-            position: fixed;
-            bottom: calc(150px + env(safe-area-inset-bottom));
-            right: 20px;
-            z-index: 998;
-            width: 45px;
-            height: 45px;
-        }
-
-        .instagram-button img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .instagram-button img:hover {
-            transform: scale(1.1);
-        }
-
-
-        .whatsapp-button {
-            position: fixed;
-            bottom: calc(70px + env(safe-area-inset-bottom));
-            right: 20px;
-            z-index: 1000;
-            width: 60px;
-            height: 60px;
-        }
-
-        .whatsapp-button img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-button:hover+.tooltip {
-            opacity: 1;
-            transform: translateY(-10px);
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .tooltip {
-            position: fixed;
-            bottom: calc(75px + env(safe-area-inset-bottom));
-            right: 90px;
-            background: #16a34a;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-size: 14px;
-            opacity: 0;
-            transform: translateX(0);
-            transition: all 0.3s ease;
-            z-index: 998;
-            pointer-events: none;
-            white-space: nowrap;
-        }
-
-        iframe {
-            width: 100%;
-            height: 300px;
-            border: 0;
-            border-radius: 8px;
-        }
-
-        footer {
-            background: #16a34a;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            .card {
-                width: 100%;
-                max-width: 200px;
-            }
-
-            .swiper-slide img {
-                width: 100%;
-                max-width: 100%;
-            }
-
-        }
-
-        @media (max-width: 480px) {
-            header {
-                height: auto;
-                padding: 60px 20px;
-            }
-
-            header img {
-                width: 100px;
-            }
-
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            header p {
-                font-size: 0.95rem;
-            }
-
-            header a {
-                font-size: 0.9rem;
-                padding: 8px 16px;
-            }
-
-            .instagram-button {
-                width: 40px;
-                height: 40px;
-                bottom: calc(160px + env(safe-area-inset-bottom));
-            }
-
-            .whatsapp-button {
-                width: 50px;
-                height: 50px;
-                bottom: calc(100px + env(safe-area-inset-bottom));
-            }
-
-            .tooltip {
-                display: none;
-            }
-        }
-    </style>
-
-
 </head>
 
 <body>
+
+    <nav class="topbar">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo Arena">
+        </div>
+        <div class="menu-toggle">&#9776;</div>
+        <ul class="menu" id="menu">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#precos">Preços</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+        </ul>
+        <div class="social">
+            <a href="https://instagram.com/soccerclubsociety" target="_blank" aria-label="Instagram">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"
+                    class="instagram-icon" />
+            </a>
+        </div>
+    </nav>
+
+
     <header>
         <img src="imagens/logo.png" alt="Logo Arena Soccer Club">
         <h1>Arena Soccer Club</h1>
@@ -310,7 +41,9 @@
         <a href="#precos">Veja os preços</a>
 
         <p class="contato-whatsapp">
-            <a href="https://wa.me/5591991149679" target="_blank">(91) 99114-9679</a>
+            <a href="https://wa.me/5591991149679" target="_blank" id="whats-link">
+                <span id="whats-text">Agende seu Horário!</span>
+            </a>
         </p>
     </header>
 
@@ -319,25 +52,17 @@
         <p>A Arena Soccer Club é o lugar ideal para quem ama futebol. Estrutura moderna, campo de qualidade, vestiários
             equipados e atendimento de primeira. Reúna os amigos e venha jogar com a gente!</p>
 
-        <div class="swiper">
+        <div class="swiper sobre-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="imagens/campo.jpg" alt="Vista interna do campo"></div>
                 <div class="swiper-slide"><img src="imagens/cervejas.jpg" alt="Cervejas"></div>
                 <div class="swiper-slide"><img src="imagens/salao.jpg" alt="Vista interna do salão"></div>
+                <div class="swiper-slide"><img src="imagens/canmpo-2.jpg" alt="Vista interna do gramado"></div>
+                <div class="swiper-slide"><img src="imagens/campo-amplo.jpg" alt="Vista ampla do campo"></div>
             </div>
-        </div>
-    </section>
-
-    <section id="clientes">
-        <h2>Nossos Clientes</h2>
-        <p>Alguns dos nossos clientes que fazem parte da nossa história.</p>
-
-        <div class="swiper clientes-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="imagens/clientes1.jpg" alt="foto dos jogadores no gramado"></div>
-                <div class="swiper-slide"><img src="imagens/clientes2.jpg" alt="jogadores confraternizando"></div>
-                <div class="swiper-slide"><img src="imagens/clientes3.jpg" alt="foto do rexpa dos amigos"></div>
-            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
@@ -357,7 +82,37 @@
                 <p>Valores sob consulta</p>
             </div>
         </div>
+
+        <div class="horarios">
+            <h3>Funcionamento</h3>
+            <p> Segunda a Sexta: 15h às 23h<br>
+                Sábados: 08h às 21h<br>
+                Domingos: 08h às 18h</p>
+        </div>
     </section>
+
+    <section id="clientes">
+        <h2>Nossos Clientes</h2>
+        <p>Alguns dos nossos clientes que fazem parte da nossa história.</p>
+
+        <div class="swiper clientes-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="imagens/clientes1.jpg" alt="foto dos jogadores no gramado"
+                        tabindex="0"></div>
+                <div class="swiper-slide"><img src="imagens/clientes2.jpg" alt="jogadores confraternizando"
+                        tabindex="0"></div>
+                <div class="swiper-slide"><img src="imagens/clientes3.jpg" alt="foto do rexpa dos amigos" tabindex="0">
+                </div>
+                <div class="swiper-slide"><img src="imagens/jogando-bola.jpg" alt="jogadores em campo" tabindex="0">
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+
 
     <section id="localizacao">
         <h2>Onde Estamos</h2>
@@ -370,18 +125,14 @@
     </section>
 
     <footer>
-        <p>Contato via WhatsApp: (91) 99114-9679 | Instagram: @soccerclubsociety</p>
-        <p style="font-size: 14px; margin-top: 5px;">
-            Desenvolvido por <a href="https://www.linkedin.com/in/kalleb-mira/" target="_blank"
-                style="color: white; text-decoration: underline;">Kalleb Mira</a>
+        <p>
+            &copy; 2025 Arena Society Soccer Club. Todos os direitos reservados.<br>
+            CNPJ: 38.654.553/0001-30<br>
+            Contato via WhatsApp: (91) 99114-9679 | Instagram: <a href="https://instagram.com/soccerclubsociety"
+                target="_blank">@soccerclubsociety</a>
         </p>
     </footer>
 
-
-    <!-- Ícone do Instagram -->
-    <a href="https://instagram.com/soccerclubsociety" class="instagram-button" target="_blank" aria-label="Instagram">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
-    </a>
 
     <!-- Botão do WhatsApp -->
     <a href="https://wa.me/5591991149679" class="whatsapp-button" target="_blank" aria-label="Fale conosco no WhatsApp">
@@ -389,50 +140,15 @@
     </a>
     <div class="tooltip">Fale conosco</div>
 
-
-
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="#" alt="Imagem ampliada">
+        <span class="lightbox-prev">&#10094;</span>
+        <span class="lightbox-next">&#10095;</span>
+    </div>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-            }
-        });
+    <script src="script.js"></script>
 
-        const clientesSwiper = new Swiper('.clientes-swiper', {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-            }
-        });
-    </script>
 </body>
 
 </html>

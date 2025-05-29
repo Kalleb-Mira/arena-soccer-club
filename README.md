@@ -39,5 +39,4 @@ Landing page moderna e responsiva para divulgação da Arena Soccer Club — um 
 
 ## 🌐 Pré-visualização online
 
-> Em breve disponível em:  
-> `https://www.arenasoccerclub.com.br` *(domínio personalizado com deploy pela Vercel)*
+> https://arena-soccer-club.vercel.app/
